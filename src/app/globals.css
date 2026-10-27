@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0d0d0d;
+  --bg-soft: #111111;
+  --surface: #181818;
+  --surface-strong: #1e1e1e;
+  --text: #ffffff;
+  --muted: #8a8a8a;
+  --faint: #5c5c5c;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: rgba(0, 0, 0, 0.32);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), Arial, sans-serif;
+  min-height: 100vh;
+  background-image: radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 40%), linear-gradient(transparent 0, rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: cover, 40px 40px, 40px 40px;
+  background-position: center, center, center;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 55%, rgba(0,0,0,0.45) 100%);
+}
+
+.font-display {
+  font-family: var(--font-syne), "Arial Black", sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-space-mono), "SFMono-Regular", monospace;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.page-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(circle at center, black, transparent 92%);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
