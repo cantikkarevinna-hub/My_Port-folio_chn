@@ -5,13 +5,15 @@ import IdCard from "@/components/IdCard";
 
 export default function Hero() {
   return (
-    <div className="grid items-center gap-10 py-12 md:grid-cols-[1.2fr_0.8fr] md:py-20">
-      <div>
+    <div className="grid items-center gap-8 py-4 md:min-h-[470px] md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] md:gap-3 md:py-6">
+      <div className="min-w-0 overflow-visible">
         <div className="font-mono text-[10px] uppercase tracking-[0.36em] text-[#5c5c5c]">✦ OPEN FOR COLLABORATION</div>
-        <h1 className="mt-6 font-display text-[3.1rem] leading-[0.95] tracking-[-0.06em] text-white md:text-[5.5rem] lg:text-[6.2rem]">
-          <span className="block">Visual</span>
-          <span className="block bg-gradient-to-r from-[#d4d4d4] via-[#8a8a8a] to-[#5a5a5a] bg-clip-text text-transparent">
-            Storyteller
+        <h1 className="mt-4 w-max max-w-none overflow-visible whitespace-nowrap font-display text-[clamp(2.2rem,5.6vw,4.2rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.055em] md:mt-6">
+          <span className="block w-max max-w-none overflow-visible whitespace-nowrap bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent">
+            CHANTIKKA
+          </span>
+          <span className="block w-max max-w-none overflow-visible whitespace-nowrap bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent">
+            REVINNA
           </span>
         </h1>
 
@@ -39,7 +41,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative flex justify-center py-8 md:py-0">
+      <div className="relative z-10 mt-8 flex min-w-0 justify-center py-2 md:mt-0 md:py-0">
         <IdCard />
       </div>
     </div>

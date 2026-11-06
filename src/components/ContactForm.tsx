@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { ArrowUpRight, Mail, MessageSquareText, Send, Upload, UserRound } from "lucide-react";
+import { Mail, MessageSquareText, Send, Upload, UserRound } from "lucide-react";
 import { FaBehance, FaGithub, FaInstagram, FaLinkedinIn, FaPinterestP, FaTiktok, FaYoutube } from "react-icons/fa";
 import Comments from "@/components/Comments";
 
@@ -58,7 +58,7 @@ export default function ContactForm() {
             <Send className="h-4 w-4" />
             Send Message
           </button>
-          {status && <p className="text-xs text-[#c084fc]">{status}</p>}
+          {status && <p className="text-xs text-[#8a8a8a]">{status}</p>}
         </form>
 
         <div className="mt-8">

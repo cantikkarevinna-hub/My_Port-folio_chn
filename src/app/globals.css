@@ -10,6 +10,11 @@
   --faint: #5c5c5c;
   --border: rgba(255, 255, 255, 0.08);
   --shadow: rgba(0, 0, 0, 0.32);
+  --accent: #ef233c;
+  --accent-soft: #f87171;
+  --accent-bg: rgba(239, 35, 60, 0.15);
+  --accent-border: rgba(239, 35, 60, 0.35);
+  --accent-glow: rgba(239, 35, 60, 0.45);
 }
 
 html {
@@ -66,6 +71,18 @@ button, input, textarea {
   background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(circle at center, black, transparent 92%);
+}
+
+.pinned-comment-card {
+  border-color: var(--accent-border);
+  background: rgba(239, 35, 60, 0.04);
+  box-shadow: 0 0 0 1px var(--accent-glow), 0 0 18px rgba(239, 35, 60, 0.08);
+}
+
+.pinned-comment-badge {
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--accent-soft);
 }
 
 @keyframes fade-up {

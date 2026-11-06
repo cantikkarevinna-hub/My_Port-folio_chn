@@ -27,6 +27,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroWords = ["Photographer", "Art Enthusiast", "Nature Lover"];
+export const heroPortrait = "/images/hero-portrait.svg";
 
 export const aboutStats = [
   { label: "PHOTOS", value: 4800, suffix: "+" },

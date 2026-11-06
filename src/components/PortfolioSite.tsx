@@ -15,7 +15,7 @@ export default function PortfolioSite() {
       <IntroScreen />
       <Navbar />
       <main className="relative z-10 mx-auto max-w-6xl px-4 pb-12 md:px-8">
-        <section id="home" className="pt-16 md:pt-24">
+        <section id="home" className="pt-3 md:pt-4">
           <Hero />
         </section>
         <section id="about" className="pt-20 md:pt-28">

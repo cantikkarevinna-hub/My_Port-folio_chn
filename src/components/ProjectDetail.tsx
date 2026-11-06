@@ -57,12 +57,12 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
 
           <div className="mt-6 rounded-[20px] border border-white/8 bg-[#181818]/80 p-5">
             <div className="mb-4 flex items-center gap-2 text-sm font-medium text-white">
-              <Sparkles className="h-4 w-4 text-[#c084fc]" /> Highlights
+              <Sparkles className="h-4 w-4 text-white/70" /> Highlights
             </div>
             <ul className="space-y-3 text-sm leading-6 text-[#8a8a8a]">
               {item.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#c084fc]" />
+                  <span className="mt-1 h-2 w-2 rounded-full bg-white/50" />
                   <span>{highlight}</span>
                 </li>
               ))}
