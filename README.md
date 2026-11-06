@@ -21,12 +21,12 @@ npm run build
 
 ## Continue editing
 
-- Update portfolio text, projects, links, and other content in `src/data/content.ts`.
-- Replace placeholder images in `public/images/` and update their paths in the content data as needed.
+- Update portfolio text, projects, gear, social links, and image paths in `src/data/content.ts`.
+- Images intentionally start as layout-stable placeholders. To add a photo, copy it into `public/images/`, then set the matching `heroPortrait`, `aboutPortrait`, project `image`, or gear `image` value in `src/data/content.ts` to a path such as `/images/hero-portrait.jpg`. Keep the component's `aspectRatio` unchanged to preserve the layout.
 - Main page composition is in `src/components/PortfolioSite.tsx`.
 - Global styles are in `src/app/globals.css`.
 
-Comments and likes are stored in the browser's local storage; they are not shared across browsers or devices.
+Comments and likes are stored in the browser's local storage; they are not shared across browsers or devices. The contact form is a front-end demo and needs a messaging service or API before it can deliver messages.
 
 ## Dependencies and Git
 

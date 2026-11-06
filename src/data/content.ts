@@ -19,6 +19,32 @@ export type GearItem = {
   image: string;
 };
 
+export type CommentItem = {
+  id: string;
+  name: string;
+  text: string;
+  likes: number;
+  liked: boolean;
+  pinned: boolean;
+};
+
+export const profileContent = {
+  brand: "chantikka.art",
+  name: "Chantikka Revinna",
+  heroTitle: ["Visual", "Storyteller"],
+  heroDescription:
+    "Mengabadikan keindahan alam lewat lensa dan mengubah ide menjadi karya visual yang bermakna. Seni, desain, dan fotografi dalam satu cerita.",
+  heroChips: ["Photography", "Art & Design", "Nature"],
+  heroPrompts: ["↓ explore my work below", "↗ open for collaboration & commissions"],
+  heroPortrait: "",
+  aboutPortrait: "",
+  aboutParagraphs: [
+    "Saya adalah seniman, desainer, dan fotografer alam yang menyukai momen-momen kecil di sekitar kehidupan. Saya senang mendokumentasikan keindahan alam melalui kamera dan mengubah ide menjadi karya visual yang bermakna.",
+    "Setiap frame menjadi perjalanan, dan setiap karya membawa cerita yang ingin disampaikan dengan hati.",
+  ],
+  aboutQuote: "Capturing nature, creating meaning through every frame.",
+};
+
 export const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
@@ -41,7 +67,7 @@ export const photographyProjects: ProjectItem[] = [
     title: "Forest Morning",
     category: "Photography",
     description: "Momen tenang di hutan saat kabut menyapa matahari dan mengubah tanah menjadi lukisan yang hidup.",
-    image: "/images/photography-01.svg",
+    image: "",
     tools: ["Sony A7 IV", "24-70mm", "Lightroom"],
     highlights: ["Soft sunrise mood", "Layered forest depth", "Atmospheric natural tones"],
   },
@@ -50,7 +76,7 @@ export const photographyProjects: ProjectItem[] = [
     title: "Mountain Mist",
     category: "Photography",
     description: "Langkah lambat di medan tinggi, di antara kabut dan angin yang membawa cerita alam yang tenang.",
-    image: "/images/photography-02.svg",
+    image: "",
     tools: ["Canon R5", "50mm", "Photoshop"],
     highlights: ["High-contrast peaks", "Misty layers", "Crisp mountain silhouettes"],
   },
@@ -59,7 +85,7 @@ export const photographyProjects: ProjectItem[] = [
     title: "Golden Hour",
     category: "Photography",
     description: "Warna hangat senja menciptakan kedalaman, emosi, dan ritme yang terasa alami pada setiap frame.",
-    image: "/images/photography-03.svg",
+    image: "",
     tools: ["Fujifilm X-T4", "35mm", "Lightroom"],
     highlights: ["Warm color grade", "Golden haze", "Story-led composition"],
   },
@@ -68,7 +94,7 @@ export const photographyProjects: ProjectItem[] = [
     title: "Ocean Waves",
     category: "Photography",
     description: "Gelombang dan cahaya laut dikuak dalam komposisi yang menggambarkan ritme dan kebebasan.",
-    image: "/images/photography-04.svg",
+    image: "",
     tools: ["Sony A7R IV", "70-200mm", "Capture One"],
     highlights: ["Wave motion", "Airy horizon line", "Dynamic contrast"],
   },
@@ -77,7 +103,7 @@ export const photographyProjects: ProjectItem[] = [
     title: "Wildflowers",
     category: "Photography",
     description: "Detail kecil dari bunga liar yang mengingatkan betapa indahnya keseimbangan yang sederhana.",
-    image: "/images/photography-05.svg",
+    image: "",
     tools: ["Canon EOS R", "90mm Macro", "Lightroom"],
     highlights: ["Macro detail", "Soft texture", "Nature storytelling"],
   },
@@ -86,7 +112,7 @@ export const photographyProjects: ProjectItem[] = [
     title: "Night Sky",
     category: "Photography",
     description: "Keheningan malam, bintang, dan emosi yang datang begitu perlahan dari langit yang luas.",
-    image: "/images/photography-06.svg",
+    image: "",
     tools: ["Nikon Z6", "24mm", "Photoshop"],
     highlights: ["Long exposure", "Moonlit contrast", "Night calm"],
   },
@@ -98,7 +124,7 @@ export const artDesignProjects: ProjectItem[] = [
     title: "Illustration Piece",
     category: "Art & Design",
     description: "Sebuah eksplorasi visual yang memadukan narasi alam dan bentuk organik dalam satu komposisi modern.",
-    image: "/images/art-design-01.svg",
+    image: "",
     tools: ["Procreate", "Illustrator", "Photoshop"],
     highlights: ["Organic curves", "Concept art", "Editorial style"],
   },
@@ -107,7 +133,7 @@ export const artDesignProjects: ProjectItem[] = [
     title: "Poster Design",
     category: "Art & Design",
     description: "Desain poster dengan ritme visual yang kuat, menangkap esensi inspirasi serta makna dalam satu frame.",
-    image: "/images/art-design-02.svg",
+    image: "",
     tools: ["Canva", "Illustrator", "Figma"],
     highlights: ["Bold type system", "Layered composition", "Brand narrative"],
   },
@@ -116,7 +142,7 @@ export const artDesignProjects: ProjectItem[] = [
     title: "Brand Concept",
     category: "Art & Design",
     description: "Konsep visual untuk brand yang mengutamakan misi, nuansa, dan pengalaman personal yang membekas.",
-    image: "/images/art-design-03.svg",
+    image: "",
     tools: ["Figma", "Photoshop", "After Effects"],
     highlights: ["Identity system", "Moodboard thinking", "Modern storytelling"],
   },
@@ -125,16 +151,16 @@ export const artDesignProjects: ProjectItem[] = [
 export const portfolioItems = [...photographyProjects, ...artDesignProjects];
 
 export const gearItems: GearItem[] = [
-  { id: "camera-1", name: "Camera 1", image: "/images/gear-01.svg" },
-  { id: "camera-2", name: "Camera 2", image: "/images/gear-02.svg" },
-  { id: "lens-1", name: "Lens 1", image: "/images/gear-03.svg" },
-  { id: "lens-2", name: "Lens 2", image: "/images/gear-04.svg" },
-  { id: "lightroom", name: "Lightroom", image: "/images/gear-05.svg" },
-  { id: "photoshop", name: "Photoshop", image: "/images/gear-06.svg" },
-  { id: "procreate", name: "Procreate", image: "/images/gear-07.svg" },
-  { id: "canva", name: "Canva", image: "/images/gear-08.svg" },
-  { id: "tripod", name: "Tripod", image: "/images/gear-09.svg" },
-  { id: "filter", name: "Filters", image: "/images/gear-10.svg" },
+  { id: "camera-1", name: "Camera 1", image: "" },
+  { id: "camera-2", name: "Camera 2", image: "" },
+  { id: "lens-1", name: "Lens 1", image: "" },
+  { id: "lens-2", name: "Lens 2", image: "" },
+  { id: "lightroom", name: "Lightroom", image: "" },
+  { id: "photoshop", name: "Photoshop", image: "" },
+  { id: "procreate", name: "Procreate", image: "" },
+  { id: "canva", name: "Canva", image: "" },
+  { id: "tripod", name: "Tripod", image: "" },
+  { id: "filter", name: "Filters", image: "" },
 ];
 
 export const socialLinks = [
@@ -147,7 +173,7 @@ export const socialLinks = [
   { platform: "Behance", handle: "@username", href: "https://behance.net" },
 ];
 
-export const defaultComments = [
+export const defaultComments: CommentItem[] = [
   {
     id: "pinned-comment",
     name: "Ari D.",

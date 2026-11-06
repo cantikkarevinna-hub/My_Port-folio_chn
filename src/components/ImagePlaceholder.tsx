@@ -36,7 +36,7 @@ export default function ImagePlaceholder({
           <circle cx="9" cy="10" r="2.25" />
           <path d="m21 15-4.2-4.2a1.5 1.5 0 0 0-2.1 0L9 17" />
         </svg>
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{title ?? alt}</span>
+        <span className="absolute bottom-4 left-2 right-2 font-mono text-[10px] uppercase tracking-[0.2em] text-white/70">{title ?? alt}</span>
       </div>
     </div>
   );

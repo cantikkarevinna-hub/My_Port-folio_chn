@@ -36,15 +36,15 @@ export default function Navbar() {
     <header className="sticky top-4 z-40 px-4 md:px-8">
       <div className="mx-auto max-w-6xl rounded-full border border-white/10 bg-black/40 px-4 py-3 shadow-[0_0_0_1px_rgba(255,255,255,0.03)] backdrop-blur-xl">
         <nav className="flex items-center justify-between gap-4">
-          <a href="#home" className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/80 hover:text-white">
+          <a href="#home" className="shrink-0 font-mono text-[10px] tracking-[0.08em] text-white/80 hover:text-white md:text-[11px]">
             chantikka.art
           </a>
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
-                className={`font-mono text-[11px] uppercase tracking-[0.18em] transition ${activeSection === item.href ? "text-white" : "text-[#8a8a8a] hover:text-white/90"}`}
+                className={`whitespace-nowrap font-mono text-[8px] tracking-[0.04em] transition sm:text-[10px] md:text-[11px] md:tracking-[0.08em] ${activeSection === item.href ? "text-white" : "text-[#8a8a8a] hover:text-white/90"}`}
               >
                 {item.label}
                 {activeSection === item.href && <span className="mt-1 block h-px w-full bg-white" />}

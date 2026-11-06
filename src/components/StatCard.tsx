@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useInView } from "framer-motion";
 
 const easeOutExpo = (t: number) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
 
@@ -14,9 +15,13 @@ type StatCardProps = {
 
 export default function StatCard({ label, value, suffix, icon }: StatCardProps) {
   const [displayValue, setDisplayValue] = useState(0);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(cardRef, { once: true, amount: 0.3 });
 
   useEffect(() => {
+    if (!isInView) return;
     let startTime: number | null = null;
+    let frame = 0;
     const duration = 1400;
 
     const tick = (timestamp: number) => {
@@ -25,16 +30,16 @@ export default function StatCard({ label, value, suffix, icon }: StatCardProps) 
       const eased = easeOutExpo(time);
       setDisplayValue(Math.round(eased * value));
       if (time < 1) {
-        requestAnimationFrame(tick);
+        frame = requestAnimationFrame(tick);
       }
     };
 
-    const frame = requestAnimationFrame(tick);
+    frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [value]);
+  }, [isInView, value]);
 
   return (
-    <div className="group relative rounded-[20px] border border-white/8 bg-[#181818]/80 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/15">
+    <div ref={cardRef} className="group relative rounded-[20px] border border-white/8 bg-[#181818]/80 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-white/15">
       <div className="mb-8 flex items-center justify-between">
         <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-white/80">
           {icon}
