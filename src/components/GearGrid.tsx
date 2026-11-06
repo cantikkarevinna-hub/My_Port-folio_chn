@@ -11,7 +11,7 @@ export default function GearGrid({ items }: { items: GearItem[] }) {
           style={{ animationDelay: `${index * 80}ms` }}
         >
           <div className="mb-3 rounded-[16px] border border-white/6 bg-[#1d1d1d] p-4">
-            <ImagePlaceholder src={item.image} alt={item.name} title={item.name} aspectRatio="1 / 1" className="rounded-[12px]" />
+            <ImagePlaceholder src={item.image} alt={item.name} title={`${item.name} · 1:1`} aspectRatio="1 / 1" className="rounded-[12px]" />
           </div>
           <div className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-white/80">{item.name}</div>
         </div>

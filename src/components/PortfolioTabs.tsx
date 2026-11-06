@@ -43,8 +43,8 @@ export default function PortfolioTabs() {
         <GearGrid items={gearItems} />
       ) : (
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {getItems().map((item) => (
-            <ProjectCard key={item.id} item={item} />
+          {getItems().map((item, index) => (
+            <ProjectCard key={item.id} item={item} index={index} />
           ))}
         </div>
       )}

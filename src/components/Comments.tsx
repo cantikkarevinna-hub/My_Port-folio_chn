@@ -1,62 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Heart } from "lucide-react";
-import type { Comment } from "@/components/ContactForm";
+import type { CommentItem } from "@/data/content";
 
-const STORAGE_KEY = "chantikka-comments";
-
-export default function Comments() {
-  const [comments, setComments] = useState<Comment[]>([]);
-
-  useEffect(() => {
-    const saved = window.localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        const parsed = JSON.parse(saved) as Comment[];
-        setComments(parsed);
-        return;
-      } catch {
-        // ignore invalid data
-      }
-    }
-    setComments([
-      {
-        id: "pinned-comment",
-        name: "Ari D.",
-        text: "Karya-karyanya punya rasa yang hangat dan sangat memikat. Visualnya terasa hidup dan penuh cerita.",
-        likes: 24,
-        liked: true,
-        pinned: true,
-      },
-      {
-        id: "comment-2",
-        name: "Fira K.",
-        text: "Detail alam yang ditampilkan sangat natural. Nggak pernah gagal bikin saya ingin keluar dan menyalakan kamera lagi.",
-        likes: 11,
-        liked: false,
-        pinned: false,
-      },
-    ]);
-  }, []);
-
-  useEffect(() => {
-    if (comments.length) window.localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
-  }, [comments]);
-
-  const toggleLike = (id: string) => {
-    setComments((current) =>
-      current.map((comment) => {
-        if (comment.id !== id) return comment;
-        return {
-          ...comment,
-          liked: !comment.liked,
-          likes: comment.liked ? Math.max(0, comment.likes - 1) : comment.likes + 1,
-        };
-      })
-    );
-  };
-
+export default function Comments({
+  comments,
+  onToggleLike,
+}: {
+  comments: CommentItem[];
+  onToggleLike: (id: string) => void;
+}) {
   return (
     <div className="space-y-4">
       {comments.map((comment) => (
@@ -78,10 +31,12 @@ export default function Comments() {
           <div className="mt-4 flex items-center justify-end">
             <button
               type="button"
-              onClick={() => toggleLike(comment.id)}
+              onClick={() => onToggleLike(comment.id)}
+              aria-pressed={comment.liked}
+              aria-label={`${comment.liked ? "Unlike" : "Like"} comment by ${comment.name}`}
               className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-transparent px-2.5 py-1.5 text-xs text-white/80 transition hover:border-white/15"
             >
-              <Heart className={`h-3.5 w-3.5 ${comment.liked ? "fill-[#c084fc] text-[#c084fc]" : "text-white/70"}`} />
+              <Heart className={`h-3.5 w-3.5 ${comment.liked ? "fill-white/70 text-white/70" : "text-white/70"}`} />
               {comment.likes}
             </button>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, Link2, Code2, Sparkles } from "lucide-react";
 import ImagePlaceholder from "@/components/ImagePlaceholder";
@@ -8,6 +8,15 @@ import type { ProjectItem } from "@/data/content";
 
 export default function ProjectDetail({ item }: { item: ProjectItem }) {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
@@ -32,12 +41,15 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8">
+            <h2 className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-[#8a8a8a]">Tools Used</h2>
+            <div className="flex flex-wrap gap-3">
             {item.tools.map((tool) => (
               <span key={tool} className="rounded-full border border-white/10 bg-transparent px-3 py-2 font-mono text-[9px] uppercase tracking-[0.2em] text-white/80">
                 {tool}
               </span>
             ))}
+            </div>
           </div>
 
           <div className="mt-8 flex gap-3">
@@ -52,17 +64,17 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
 
         <div>
           <button type="button" onClick={() => setOpen(true)} className="block w-full overflow-hidden rounded-[22px] border border-white/8 bg-[#181818]/80 p-2 text-left">
-            <ImagePlaceholder src={item.image} alt={item.title} title={item.title} aspectRatio="16 / 9" className="rounded-[16px]" />
+            <ImagePlaceholder src={item.image} alt={item.title} title={`${item.title} · 16:9`} aspectRatio="16 / 9" className="rounded-[16px]" />
           </button>
 
           <div className="mt-6 rounded-[20px] border border-white/8 bg-[#181818]/80 p-5">
             <div className="mb-4 flex items-center gap-2 text-sm font-medium text-white">
-              <Sparkles className="h-4 w-4 text-[#c084fc]" /> Highlights
+              <Sparkles className="h-4 w-4 text-white/70" /> Highlights
             </div>
             <ul className="space-y-3 text-sm leading-6 text-[#8a8a8a]">
               {item.highlights.map((highlight) => (
                 <li key={highlight} className="flex gap-2">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-[#c084fc]" />
+                  <span className="mt-1 h-2 w-2 rounded-full bg-white/50" />
                   <span>{highlight}</span>
                 </li>
               ))}
@@ -72,10 +84,10 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm" onClick={() => setOpen(false)}>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm" onClick={() => setOpen(false)} role="dialog" aria-modal="true" aria-label={`${item.title} image preview`}>
           <div className="relative w-full max-w-4xl rounded-[24px] border border-white/12 bg-[#f5f5f5] p-3 shadow-2xl" onClick={(event) => event.stopPropagation()}>
             <button type="button" className="absolute -right-4 -top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white text-xl font-medium text-black" onClick={() => setOpen(false)} aria-label="Close preview">×</button>
-            <ImagePlaceholder src={item.image} alt={item.title} title={item.title} aspectRatio="16 / 9" className="rounded-[18px]" />
+            <ImagePlaceholder src={item.image} alt={item.title} title={`${item.title} · 16:9`} aspectRatio="16 / 9" className="rounded-[18px]" />
           </div>
         </div>
       )}
