@@ -1,8 +1,16 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { heroWords, profileContent } from "@/data/content";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import type { IconType } from "react-icons";
+import { heroWords, profileContent, socialLinks } from "@/data/content";
 import IdCard from "@/components/IdCard";
+
+const socialIcons: Record<string, IconType> = {
+  Instagram: FaInstagram,
+  GitHub: FaGithub,
+  LinkedIn: FaLinkedinIn,
+};
 
 export default function Hero() {
   const [typedWord, setTypedWord] = useState("");
@@ -65,18 +73,43 @@ export default function Hero() {
           ))}
         </div>
 
-        <div className="mt-8 space-y-2 font-mono text-[10px] uppercase tracking-[0.28em] text-[#8a8a8a]">
-          {profileContent.heroPrompts.map((prompt) => <div key={prompt} className="inline-flex items-center gap-2">{prompt}</div>)}
+        <div className="mt-6 flex items-center gap-3" aria-label="Social media links">
+          {socialLinks
+            .filter(({ platform }) => platform in socialIcons)
+            .map(({ platform, href }) => {
+              const Icon = socialIcons[platform];
+              return (
+                <a
+                  key={platform}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={platform}
+                  title={platform}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/75 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
+                  <Icon aria-hidden="true" className="h-[17px] w-[17px]" />
+                </a>
+              );
+            })}
+        </div>
+
+        <div className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[8px] uppercase leading-5 tracking-[0.04em] text-[#8a8a8a] sm:text-[10px] sm:tracking-[0.12em] md:gap-x-5 md:tracking-[0.2em]">
+          {profileContent.heroPrompts.map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="whitespace-nowrap transition-colors hover:text-white/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              {label}
+            </a>
+          ))}
         </div>
       </div>
 
       <div className="relative z-10 mt-8 flex min-w-0 justify-center py-2 md:mt-0 md:py-0">
         <IdCard />
       </div>
-
-      <a href="#portfolio" className="mt-2 flex justify-center font-mono text-[9px] uppercase tracking-[0.3em] text-[#5c5c5c] transition hover:text-white/80 md:col-span-2 md:mt-0">
-        SCROLL ↓
-      </a>
     </div>
   );
 }

@@ -12,9 +12,13 @@ export default function About() {
     <div className="grid items-center gap-10 py-8 md:grid-cols-[1.15fr_0.85fr]">
       <div>
         <div className="font-mono text-[10px] uppercase tracking-[0.26em] text-[#8a8a8a]">ABOUT ME</div>
-        <h2 className="mt-4 font-display text-[2.8rem] leading-[0.9] tracking-[-0.06em] text-white md:text-[4.2rem]">
-          {profileContent.name.split(" ").slice(0, 1)}
-          <span className="block">{profileContent.name.split(" ").slice(1).join(" ")}</span>
+        <h2 className="mt-4 w-max max-w-full font-display text-[clamp(2.2rem,.6vw,4.2rem)] font-bold uppercase leading-[0.88] tracking-[-0.055em]">
+          <span className="block bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent">
+            {profileContent.name.split("\n")[0]}
+          </span>
+          <span className="block bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent">
+            {profileContent.name.split("\n").slice(1).join("\n")}
+          </span>
         </h2>
         {profileContent.aboutParagraphs.map((paragraph) => (
           <p key={paragraph} className="mt-4 max-w-xl text-base leading-7 text-[#8a8a8a]">{paragraph}</p>

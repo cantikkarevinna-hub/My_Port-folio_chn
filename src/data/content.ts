@@ -29,18 +29,19 @@ export type CommentItem = {
 };
 
 export const profileContent = {
-  brand: "chantikka.art",
-  name: "Chantikka Revinna",
-  heroTitle: ["Visual", "Storyteller"],
+  brand: "CHN-RV",
+  name: "I am a Visual\nStoryteller",
   heroDescription:
     "Mengabadikan keindahan alam lewat lensa dan mengubah ide menjadi karya visual yang bermakna. Seni, desain, dan fotografi dalam satu cerita.",
   heroChips: ["Photography", "Art & Design", "Nature"],
-  heroPrompts: ["↓ explore my work below", "↗ open for collaboration & commissions"],
+  heroPrompts: [
+    { label: "↓ explore my work below", href: "#portfolio" },
+    { label: "↗ open for collaboration & commissions", href: "#contact" },
+  ],
   heroPortrait: "",
   aboutPortrait: "",
   aboutParagraphs: [
     "Saya adalah seniman, desainer, dan fotografer alam yang menyukai momen-momen kecil di sekitar kehidupan. Saya senang mendokumentasikan keindahan alam melalui kamera dan mengubah ide menjadi karya visual yang bermakna.",
-    "Setiap frame menjadi perjalanan, dan setiap karya membawa cerita yang ingin disampaikan dengan hati.",
   ],
   aboutQuote: "Capturing nature, creating meaning through every frame.",
 };
@@ -164,13 +165,13 @@ export const gearItems: GearItem[] = [
 ];
 
 export const socialLinks = [
-  { platform: "LinkedIn", handle: "@username", href: "https://linkedin.com" },
-  { platform: "Instagram", handle: "@username", href: "https://instagram.com" },
-  { platform: "YouTube", handle: "@username", href: "https://youtube.com" },
+  { platform: "LinkedIn", handle: "Chantikka Revinna", href: "https://linkedin.com" },
+  { platform: "Instagram", handle: "@real_chn_8", href: "https://www.instagram.com/real_chn_8?mdxt=MWxtaXAxODM3ZnNjbQ==" },
+  { platform: "YouTube", handle: "@NK-tur", href: "https://www.youtube.com/@NK-tur" },
   { platform: "GitHub", handle: "@username", href: "https://github.com" },
-  { platform: "TikTok", handle: "@username", href: "https://tiktok.com" },
-  { platform: "Pinterest", handle: "@username", href: "https://pinterest.com" },
-  { platform: "Behance", handle: "@username", href: "https://behance.net" },
+  { platform: "TikTok", handle: "@channna_tut", href: "https://www.tiktok.com/@channna_tut?_r=1&_t=ZS-9Av2ukgeUnU" },
+  { platform: "Pinterest", handle: "@ncann_ylv", href: "https://id.pinterest.com/ncann_ylv/" },
+  { platform: "Behance", handle: "Chantikka Revinna", href: "https://www.behance.net/cantikkarevinna/" },
 ];
 
 export const defaultComments: CommentItem[] = [
