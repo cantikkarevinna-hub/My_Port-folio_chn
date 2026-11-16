@@ -13,12 +13,6 @@ export type ProjectItem = {
   highlights: string[];
 };
 
-export type GearItem = {
-  id: string;
-  name: string;
-  image: string;
-};
-
 export type CommentItem = {
   id: string;
   name: string;
@@ -49,18 +43,13 @@ export const profileContent = {
 export const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Photography", href: "#photography" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const heroWords = ["Photographer", "Art Enthusiast", "Nature Lover"];
 export const heroPortrait = "/images/hero-portrait.svg";
-
-export const aboutStats = [
-  { label: "PHOTOS", value: 4800, suffix: "+" },
-  { label: "DESIGNS", value: 120, suffix: "+" },
-  { label: "CAMERAS", value: 8, suffix: "" },
-];
 
 export const photographyProjects: ProjectItem[] = [
   {
@@ -150,19 +139,6 @@ export const artDesignProjects: ProjectItem[] = [
 ];
 
 export const portfolioItems = [...photographyProjects, ...artDesignProjects];
-
-export const gearItems: GearItem[] = [
-  { id: "camera-1", name: "Camera 1", image: "" },
-  { id: "camera-2", name: "Camera 2", image: "" },
-  { id: "lens-1", name: "Lens 1", image: "" },
-  { id: "lens-2", name: "Lens 2", image: "" },
-  { id: "lightroom", name: "Lightroom", image: "" },
-  { id: "photoshop", name: "Photoshop", image: "" },
-  { id: "procreate", name: "Procreate", image: "" },
-  { id: "canva", name: "Canva", image: "" },
-  { id: "tripod", name: "Tripod", image: "" },
-  { id: "filter", name: "Filters", image: "" },
-];
 
 export const socialLinks = [
   { platform: "LinkedIn", handle: "Chantikka Revinna", href: "https://linkedin.com" },

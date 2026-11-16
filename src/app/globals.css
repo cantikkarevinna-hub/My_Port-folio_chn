@@ -19,6 +19,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -26,7 +27,8 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-inter), Arial, sans-serif;
-  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: clip;
   background-image: radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 40%), linear-gradient(transparent 0, rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
   background-size: cover, 40px 40px, 40px 40px;
   background-position: center, center, center;

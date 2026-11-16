@@ -11,22 +11,27 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
 
   useEffect(() => {
     if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setOpen(false);
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [open]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8 md:px-8">
-      <Link href="/#portfolio" className="inline-flex items-center gap-2 text-sm text-[#8a8a8a] transition hover:text-white">
+    <div className="mx-auto max-w-6xl px-5 py-6 md:px-8 md:py-8">
+      <Link href="/#portfolio" className="inline-flex min-h-11 items-center gap-2 text-sm text-[#8a8a8a] transition hover:text-white md:min-h-0">
         <ArrowLeft className="h-4 w-4" /> Back
       </Link>
 
       <div className="mt-8 grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
         <div>
-          <h1 className="font-display text-4xl leading-none tracking-[-0.06em] text-white md:text-6xl">{item.title}</h1>
+          <h1 className="font-display text-[clamp(2rem,10vw,3rem)] leading-none tracking-[-0.06em] text-white md:text-6xl">{item.title}</h1>
           <div className="mt-5 h-px w-28 bg-white/20" />
           <p className="mt-6 max-w-xl text-base leading-7 text-[#8a8a8a]">{item.description}</p>
 
@@ -52,11 +57,11 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
             </div>
           </div>
 
-          <div className="mt-8 flex gap-3">
-            <button type="button" disabled className="inline-flex items-center gap-2 rounded-[10px] border border-white/10 bg-[#1a1a1a] px-4 py-3 text-sm text-white/60">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <button type="button" disabled className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[10px] border border-white/10 bg-[#1a1a1a] px-4 py-3 text-sm text-white/60 sm:min-h-0">
               <Link2 className="h-4 w-4" /> No Link
             </button>
-            <button type="button" disabled className="inline-flex items-center gap-2 rounded-[10px] border border-white/10 bg-[#1a1a1a] px-4 py-3 text-sm text-white/60">
+            <button type="button" disabled className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[10px] border border-white/10 bg-[#1a1a1a] px-4 py-3 text-sm text-white/60 sm:min-h-0">
               <Code2 className="h-4 w-4" /> No Source
             </button>
           </div>
@@ -84,9 +89,9 @@ export default function ProjectDetail({ item }: { item: ProjectItem }) {
       </div>
 
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 backdrop-blur-sm" onClick={() => setOpen(false)} role="dialog" aria-modal="true" aria-label={`${item.title} image preview`}>
-          <div className="relative w-full max-w-4xl rounded-[24px] border border-white/12 bg-[#f5f5f5] p-3 shadow-2xl" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="absolute -right-4 -top-4 flex h-9 w-9 items-center justify-center rounded-full bg-white text-xl font-medium text-black" onClick={() => setOpen(false)} aria-label="Close preview">×</button>
+        <div className="fixed inset-y-0 left-0 z-50 flex w-screen items-center justify-center bg-black/70 p-0 backdrop-blur-sm sm:p-4" onClick={() => setOpen(false)} role="dialog" aria-modal="true" aria-label={`${item.title} image preview`}>
+          <div className="relative h-[100dvh] w-full overflow-y-auto border border-white/12 bg-[#f5f5f5] p-3 pb-[calc(env(safe-area-inset-bottom)+1rem)] pt-[calc(env(safe-area-inset-top)+3.5rem)] shadow-2xl sm:h-auto sm:max-w-4xl sm:overflow-visible sm:rounded-[24px] sm:pb-3 sm:pt-3" onClick={(event) => event.stopPropagation()}>
+            <button type="button" className="absolute right-3 top-3 flex h-11 w-11 items-center justify-center rounded-full bg-white text-xl font-medium text-black sm:-right-4 sm:-top-4 sm:h-9 sm:w-9" onClick={() => setOpen(false)} aria-label="Close preview">×</button>
             <ImagePlaceholder src={item.image} alt={item.title} title={`${item.title} · 16:9`} aspectRatio="16 / 9" className="rounded-[18px]" />
           </div>
         </div>

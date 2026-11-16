@@ -39,6 +39,7 @@ export default function IdCard() {
   const reducedMotion = useReducedMotion();
   const [dragging, setDragging] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [mobile, setMobile] = useState(false);
   const [contextFailed, setContextFailed] = useState(false);
   const [fonts, setFonts] = useState<{ mono?: string; display?: string }>({});
 
@@ -48,6 +49,14 @@ export default function IdCard() {
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { rootMargin: "100px" });
     observer.observe(element);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const query = window.matchMedia("(max-width: 639px)");
+    const update = () => setMobile(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
   }, []);
 
   useEffect(() => {
@@ -125,8 +134,8 @@ export default function IdCard() {
   return (
     <div
       ref={shell}
-      className={`pointer-events-none relative mx-auto select-none touch-pan-y will-change-transform ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
-      style={{ width: "min(100%, 48vh, 426.67px)", aspectRatio: "2 / 3", maxHeight: "min(72vh, 640px)" }}
+      className={`pointer-events-auto relative mx-auto h-auto w-[min(100%,280px)] select-none touch-pan-y will-change-transform sm:w-[min(100%,48vh,426.67px)] ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+      style={{ aspectRatio: "2 / 3", maxHeight: "min(72dvh, 640px)" }}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={finishDrag}
@@ -143,6 +152,7 @@ export default function IdCard() {
               interaction={interaction}
               fonts={fonts}
               reducedMotion={Boolean(reducedMotion)}
+              mobile={mobile}
               active={visible}
               dragging={dragging}
               onContextLost={() => setContextFailed(true)}

@@ -12,11 +12,16 @@ export default function ProjectCard({ item, index = 0 }: { item: ProjectItem; in
 
   useEffect(() => {
     if (!lightboxOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") setLightboxOpen(false);
     };
     window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, [lightboxOpen]);
 
   return (
@@ -32,7 +37,7 @@ export default function ProjectCard({ item, index = 0 }: { item: ProjectItem; in
           <p className="line-clamp-2 text-sm leading-6 text-[#8a8a8a]">{item.description}</p>
           <div className="mt-2 flex items-center justify-between border-t border-white/8 pt-3">
             <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#5c5c5c]">No Link</span>
-            <Link href={`/portfolio/${item.id}`} className="inline-flex items-center gap-2 text-sm font-medium text-white transition hover:text-white/80">
+            <Link href={`/portfolio/${item.id}`} className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-white transition hover:text-white/80 md:min-h-0">
               Details <span aria-hidden="true">→</span>
             </Link>
           </div>
@@ -40,14 +45,14 @@ export default function ProjectCard({ item, index = 0 }: { item: ProjectItem; in
       </motion.article>
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 px-4 backdrop-blur-sm"
+          className="fixed inset-y-0 left-0 z-50 flex w-screen items-center justify-center bg-black/75 p-0 backdrop-blur-sm sm:p-4"
           onClick={() => setLightboxOpen(false)}
           role="dialog"
           aria-modal="true"
           aria-label={`${item.title} image preview`}
         >
-          <div className="relative w-full max-w-5xl rounded-[24px] border border-white/12 bg-[#f5f5f5] p-3 shadow-2xl" onClick={(event) => event.stopPropagation()}>
-            <button type="button" className="absolute -right-3 -top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black" onClick={() => setLightboxOpen(false)} aria-label="Close preview">
+          <div className="relative h-[100dvh] w-full overflow-y-auto border border-white/12 bg-[#f5f5f5] p-3 pb-[calc(env(safe-area-inset-bottom)+1rem)] pt-[calc(env(safe-area-inset-top)+3.5rem)] shadow-2xl sm:h-auto sm:max-w-5xl sm:overflow-visible sm:rounded-[24px] sm:pb-3 sm:pt-3" onClick={(event) => event.stopPropagation()}>
+            <button type="button" className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-black sm:-right-3 sm:-top-3 sm:h-10 sm:w-10" onClick={() => setLightboxOpen(false)} aria-label="Close preview">
               <X className="h-5 w-5" />
             </button>
             <ImagePlaceholder src={item.image} alt={item.title} title={`${item.title} · 16:10`} aspectRatio="16 / 10" className="rounded-[18px]" />

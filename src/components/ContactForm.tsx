@@ -111,26 +111,26 @@ export default function ContactForm() {
 
   return (
     <div className="grid gap-6 lg:grid-cols-[1.1fr_1.4fr]">
-      <div className="rounded-[24px] border border-white/8 bg-[#181818]/90 p-6 sm:p-7">
+      <div className="rounded-[24px] border border-white/8 bg-[#181818]/90 p-4 sm:p-7">
         <h3 className="font-display text-3xl text-white">Hubungi Saya</h3>
         <p className="mt-3 text-sm leading-6 text-[#8a8a8a]">
           Feel free to reach out if you want to collaborate, discuss ideas, or simply say hello.
         </p>
 
         <form onSubmit={handleContactSubmit} className="mt-6 space-y-4">
-          <label className="flex items-center gap-3 rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
+          <label className="flex min-h-11 items-center gap-3 rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
             <UserRound className="h-4 w-4 text-[#8a8a8a]" />
-            <input required name="name" autoComplete="name" className="w-full bg-transparent text-white placeholder:text-[#5c5c5c] focus:outline-none" placeholder="Your Name" />
+            <input required name="name" autoComplete="name" className="w-full bg-transparent text-base text-white placeholder:text-[#5c5c5c] focus:outline-none md:text-sm" placeholder="Your Name" />
           </label>
-          <label className="flex items-center gap-3 rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
+          <label className="flex min-h-11 items-center gap-3 rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
             <Mail className="h-4 w-4 text-[#8a8a8a]" />
-            <input required type="email" name="email" autoComplete="email" className="w-full bg-transparent text-white placeholder:text-[#5c5c5c] focus:outline-none" placeholder="Your Email" />
+            <input required type="email" name="email" autoComplete="email" className="w-full bg-transparent text-base text-white placeholder:text-[#5c5c5c] focus:outline-none md:text-sm" placeholder="Your Email" />
           </label>
-          <label className="flex items-start gap-3 rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
+          <label className="flex min-h-11 items-start gap-3 rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
             <MessageSquareText className="mt-1 h-4 w-4 text-[#8a8a8a]" />
-            <textarea required name="message" rows={5} className="w-full resize-none bg-transparent text-white placeholder:text-[#5c5c5c] focus:outline-none" placeholder="Your Message" />
+            <textarea required name="message" rows={5} className="w-full resize-none bg-transparent text-base text-white placeholder:text-[#5c5c5c] focus:outline-none md:text-sm" placeholder="Your Message" />
           </label>
-          <button type="submit" className="flex w-full items-center justify-center gap-2 rounded-[12px] bg-[#2d2d2d] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#3a3a3a]">
+          <button type="submit" className="flex min-h-11 w-full items-center justify-center gap-2 rounded-[12px] bg-[#2d2d2d] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#3a3a3a]">
             <Send className="h-4 w-4" />
             Send Message
           </button>
@@ -144,7 +144,7 @@ export default function ContactForm() {
               const Icon = socialIcons[platform];
               return (
                 <a key={platform} href={href} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-[14px] border border-white/8 bg-[#111111] p-3 text-white transition hover:border-white/12">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-[10px] border border-white/8 bg-white/3"><Icon className="h-4 w-4" /></div>
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] border border-white/8 bg-white/3 md:h-10 md:w-10"><Icon className="h-4 w-4" /></div>
                   <div><div className="text-sm font-medium">{platform}</div><div className="text-xs text-[#8a8a8a]">{handle}</div></div>
                 </a>
               );
@@ -154,8 +154,8 @@ export default function ContactForm() {
                 {group.map(({ platform, handle, href }) => {
                   const Icon = socialIcons[platform];
                   return (
-                    <a key={platform} href={href} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-[14px] border border-white/8 bg-[#111111] p-3 text-white transition hover:border-white/12">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] border border-white/8 bg-white/3"><Icon className="h-4 w-4" /></div>
+                    <a key={platform} href={href} target="_blank" rel="noreferrer" className="flex min-h-11 items-center gap-2 rounded-[14px] border border-white/8 bg-[#111111] p-2 text-white transition hover:border-white/12 sm:gap-3 sm:p-3">
+                      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] border border-white/8 bg-white/3 md:h-10 md:w-10"><Icon className="h-4 w-4" /></div>
                       <div className="min-w-0"><div className="text-sm font-medium">{platform}</div><div className="truncate text-xs text-[#8a8a8a]">{handle}</div></div>
                     </a>
                   );
@@ -166,28 +166,28 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div className="rounded-[24px] border border-white/8 bg-[#181818]/90 p-6 sm:p-7">
-        <div className="flex items-center justify-between gap-3">
+      <div className="rounded-[24px] border border-white/8 bg-[#181818]/90 p-4 sm:p-7">
+        <div className="flex flex-col items-start justify-between gap-1 sm:flex-row sm:items-center sm:gap-3">
           <h3 className="font-display text-3xl text-white">Comments</h3>
           <span className="text-xs text-[#8a8a8a]">Leave your thoughts here</span>
         </div>
         <form onSubmit={handleCommentSubmit} className="mt-6 space-y-4">
           <label className="block rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
             <span className="sr-only">Your Name</span>
-            <input required value={commentName} onChange={(event) => setCommentName(event.target.value)} className="w-full bg-transparent text-white placeholder:text-[#5c5c5c] focus:outline-none" placeholder="Your Name" />
+            <input required value={commentName} onChange={(event) => setCommentName(event.target.value)} className="w-full bg-transparent text-base text-white placeholder:text-[#5c5c5c] focus:outline-none md:text-sm" placeholder="Your Name" />
           </label>
           <label className="block rounded-[14px] border border-white/8 bg-[#111111] px-4 py-3 text-sm text-[#8a8a8a]">
             <span className="sr-only">Your Comment</span>
-            <textarea required value={commentText} onChange={(event) => setCommentText(event.target.value)} rows={4} className="w-full resize-none bg-transparent text-sm text-white placeholder:text-[#5c5c5c] focus:outline-none" placeholder="Your Comment" />
+            <textarea required value={commentText} onChange={(event) => setCommentText(event.target.value)} rows={4} className="w-full resize-none bg-transparent text-base text-white placeholder:text-[#5c5c5c] focus:outline-none md:text-sm" placeholder="Your Comment" />
           </label>
           <div className="flex flex-wrap items-center gap-3">
             <input ref={uploadInput} type="file" accept="image/*" className="sr-only" onChange={(event) => setSelectedFile(event.target.files?.[0]?.name ?? "")} aria-label="Choose an image to upload" />
-            <button type="button" onClick={() => uploadInput.current?.click()} className="flex items-center justify-center gap-2 rounded-[12px] border border-white/12 bg-transparent px-4 py-3 text-sm text-white transition hover:border-white/20">
+            <button type="button" onClick={() => uploadInput.current?.click()} className="flex min-h-11 items-center justify-center gap-2 rounded-[12px] border border-white/12 bg-transparent px-4 py-3 text-sm text-white transition hover:border-white/20">
               <Upload className="h-4 w-4" />
               Upload Image
             </button>
             {selectedFile && <span className="max-w-40 truncate text-xs text-[#8a8a8a]">{selectedFile}</span>}
-            <button type="submit" className="ml-auto rounded-[12px] bg-[#2d2d2d] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#3a3a3a]">
+            <button type="submit" className="min-h-11 w-full rounded-[12px] bg-[#2d2d2d] px-4 py-3 text-sm font-medium text-white transition hover:bg-[#3a3a3a] sm:ml-auto sm:w-auto">
               Post Comment
             </button>
           </div>

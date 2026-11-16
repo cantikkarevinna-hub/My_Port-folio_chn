@@ -34,7 +34,7 @@ export default function Comments({
               onClick={() => onToggleLike(comment.id)}
               aria-pressed={comment.liked}
               aria-label={`${comment.liked ? "Unlike" : "Like"} comment by ${comment.name}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/8 bg-transparent px-2.5 py-1.5 text-xs text-white/80 transition hover:border-white/15"
+              className="inline-flex min-h-11 min-w-11 items-center justify-center gap-2 rounded-full border border-white/8 bg-transparent px-2.5 py-1.5 text-xs text-white/80 transition hover:border-white/15 md:min-h-0 md:min-w-0"
             >
               <Heart className={`h-3.5 w-3.5 ${comment.liked ? "fill-white/70 text-white/70" : "text-white/70"}`} />
               {comment.likes}

@@ -623,6 +623,7 @@ export default function IdCardScene({
   reducedMotion,
   active,
   dragging,
+  mobile,
   onContextLost,
 }: {
   interaction: MutableRefObject<CardInteraction>;
@@ -630,12 +631,13 @@ export default function IdCardScene({
   reducedMotion: boolean;
   active: boolean;
   dragging: boolean;
+  mobile: boolean;
   onContextLost: () => void;
 }) {
   const photoIsPresent = Boolean(heroPortrait && !heroPortrait.endsWith(".svg"));
   return (
     <Canvas
-      dpr={[1, 2]}
+      dpr={mobile ? [1, 1.5] : [1, 2]}
       gl={{ alpha: true, antialias: true, premultipliedAlpha: true, toneMapping: THREE.ACESFilmicToneMapping }}
       style={{ background: "transparent", pointerEvents: "auto" }}
       camera={{ fov: 30, position: [0, 0, 13] }}

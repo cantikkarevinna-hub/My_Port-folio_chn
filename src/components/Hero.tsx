@@ -43,19 +43,19 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="grid items-center gap-8 py-4 md:min-h-[470px] md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] md:gap-3 md:py-6">
+    <div className="grid min-w-0 grid-cols-1 items-center gap-6 py-4 md:min-h-[470px] md:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] md:gap-3 md:py-6">
       <div className="min-w-0 overflow-visible">
         <div className="font-mono text-[10px] uppercase tracking-[0.36em] text-[#5c5c5c]">✦ OPEN FOR COLLABORATION</div>
-        <h1 className="mt-4 w-max max-w-none overflow-visible whitespace-nowrap font-display text-[clamp(2.2rem,5.6vw,4.2rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.055em] md:mt-6">
-          <span className="block w-max max-w-none overflow-visible whitespace-nowrap bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent">
+        <h1 className="mt-4 w-full max-w-full overflow-visible whitespace-normal font-display text-[clamp(1.7rem,8.5vw,3.8rem)] font-extrabold uppercase leading-[0.88] tracking-[-0.055em] md:mt-6 md:w-max md:max-w-none md:whitespace-nowrap md:text-[clamp(2.2rem,5.6vw,4.2rem)]">
+          <span className="block w-full max-w-full overflow-visible whitespace-nowrap bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent md:w-max md:max-w-none">
             CHANTIKKA
           </span>
-          <span className="block w-max max-w-none overflow-visible whitespace-nowrap bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent">
+          <span className="block w-full max-w-full overflow-visible whitespace-nowrap bg-gradient-to-r from-[#e6e6e6] via-[#bdbdbd] to-[#737373] bg-clip-text text-transparent md:w-max md:max-w-none">
             REVINNA
           </span>
         </h1>
 
-        <div className="mt-6 flex min-h-[26px] items-center gap-2 font-mono text-sm text-white/80 md:text-base">
+        <div className="mt-6 flex min-h-[26px] flex-wrap items-center gap-2 font-mono text-sm text-white/80 md:flex-nowrap md:text-base">
           <span className="font-medium text-white/60">I am</span>
           <span className="font-medium text-white">{typedWord}</span>
           <span className="inline-block animate-pulse text-white/70">_</span>
@@ -86,7 +86,7 @@ export default function Hero() {
                   rel="noreferrer"
                   aria-label={platform}
                   title={platform}
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/75 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/75 transition hover:border-white/25 hover:bg-white/[0.08] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:h-10 md:w-10"
                 >
                   <Icon aria-hidden="true" className="h-[17px] w-[17px]" />
                 </a>
@@ -99,7 +99,7 @@ export default function Hero() {
             <a
               key={href}
               href={href}
-              className="whitespace-nowrap transition-colors hover:text-white/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              className="inline-flex min-h-11 items-center whitespace-nowrap transition-colors hover:text-white/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:min-h-0"
             >
               {label}
             </a>
@@ -107,7 +107,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="relative z-10 mt-8 flex min-w-0 justify-center py-2 md:mt-0 md:py-0">
+      <div className="relative z-10 mt-4 flex min-w-0 justify-center py-2 md:mt-0 md:py-0">
         <IdCard />
       </div>
     </div>
