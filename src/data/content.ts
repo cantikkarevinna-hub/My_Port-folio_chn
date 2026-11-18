@@ -49,7 +49,7 @@ export const navItems: NavItem[] = [
 ];
 
 export const heroWords = ["Photographer", "Art Enthusiast", "Nature Lover"];
-export const heroPortrait = "/images/hero-portrait.svg";
+export const heroPortrait = "/images/hero-portrait.png";
 
 export const photographyProjects: ProjectItem[] = [
   {

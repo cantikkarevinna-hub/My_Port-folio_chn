@@ -22,13 +22,16 @@ import type { Work } from "../../src/lib/portfolio-types";
 // ╚═══════════════════════════════════════════════╝
 export const web: Work[] = [
   {
-    slug: "creative-portfolio",
-    title: "Creative Portfolio",
-    description: "Template konten: deskripsikan pengalaman digital dan tujuan proyek.",
+    slug: "nekakultur",
+    title: "NekaKultur",
+    description: "NekaKultur adalah platform edukasi interaktif yang didedikasikan untuk melestarikan dan mempromosikan kekayaan budaya Indonesia. NekaKultur menghadirkan sistem pembelajaran budaya yang terstruktur berdasarkan provinsi, dilengkapi dengan konten multimedia serta fitur evaluasi dan partisipasi pengguna. Melalui pendekatan ini, platform diharapkan dapat menjadi sarana edukasi yang efektif dalam meningkatkan pemahaman, minat, serta peran aktif pelajar dalam melestarikan kebudayaan Indonesia di era digital.",
     year: 2026,
-    tags: ["Portfolio", "Responsive"],
-    tools: ["Next.js", "TypeScript", "Figma"],
+    tags: ["Edukasi Budaya", "Platform Interaktif", "Capstone Project"],
+    tools: ["React", "Vite", "Tailwind CSS", "Framer Motion", "Express", "MySQL"],
+    captions: ["Halaman utama NekaKultur", "Masuk ke akun", "Daftar akun", "Jelajahi daerah", "Budaya Bali", "Payas Agung", "Tari Pendet", "Alat musik tradisional — Rindik", "Makanan khas — Sate Lilit", "Kuis budaya Bali"],
     team: { name: "Chantikka Revinna", role: "Designer & Developer" },
+    liveUrl: "https://nekakultur.vercel.app",
+    repoUrl: "https://github.com/Capstone-Project-CC26-PS065/nekakultur.git",
   },
   {
     slug: "nature-journal",
